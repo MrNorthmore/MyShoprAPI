@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
 
-let envStatusSchema = new mongoose.Schema({
-    timestamp: { type: Date, default: Date.now },
-    isMongoRunning: Boolean,
-    isMongoConnected: Boolean,
-    isAPIRunning: Boolean
+const aisleSchema = new mongoose.Schema({
+    aisleId: Number,
+    categories: [String],
+    items: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Items'} ],
+    position: {
+        xPos: Number,
+        yPos: Number
+    }
 });
 
-let EnvStatus = mongoose.model('EnvStatus', envStatusSchema, 'EnvStatus')
-
-export default EnvStatus;
+export default mongoose.model('Aisle', aisleSchema, 'Stores');

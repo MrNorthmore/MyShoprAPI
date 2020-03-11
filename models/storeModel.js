@@ -1,12 +1,9 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema
+import mongoose from 'mongoose';
 
-var storeSchema = new Schema({
+const storeSchema = new mongoose.Schema({
   storeId: Number,
   name: String,
   address: String
 });
 
-var Stores = mongoose.model('Stores', storeSchema, 'Stores')
-
-module.exports = Stores;
+export default mongoose.model('Stores', storeSchema, 'Stores');
