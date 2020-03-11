@@ -2,10 +2,12 @@
   "name": "myshoprapi",
   "version": "1.0.0",
   "description": "API for the MyShopr application",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node -r esm server.js",
-    "dev-start": "nodemon -r esm server.js"
+    "start": "node -r esm src/server.js",
+    "dev-start": "nodemon -r esm src/server.js",
+    "prettier": "prettier --config ./.prettierrc --write \"**/*.js\"",
+    "lint": "npm run prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src"
   },
   "engines": {
     "node": "10.x",
@@ -14,13 +16,27 @@
   "author": "MDMJ",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.11.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "graphql-compose": "^7.14.0",
+    "graphql-compose-connection": "^6.0.4",
+    "graphql-compose-mongoose": "^7.3.4",
+    "graphql-middleware": "^4.0.2",
+    "graphql-tools": "^4.0.7",
     "mongodb": "^3.5.4",
-    "mongoose": "^5.9.3"
+    "mongoose": "^5.9.4",
+    "mongoose-bcrypt": "^1.6.0",
+    "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "fs-extra": "^8.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
   }
 }
