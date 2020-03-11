@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var EnvStatus = require('../models/envStatusModel.js');
-var mongoose = require('mongoose');
+import express from "express";
+import EnvStatus from "../models/envStatusModel.js";
+import mongoose from 'mongoose';
+let router;
+router = express.Router();
 
-router.route('/env_status')
-    .get(async function (req, res) {
+router.get('/env_status', async function (req, res) {
         EnvStatus.find( {} ).then(async function(updatedDoc) {
             if (updatedDoc) {
                 if(mongoose.connection){
@@ -24,4 +24,4 @@ router.route('/env_status')
 
     });
 
-module.exports = router;
+export default router;

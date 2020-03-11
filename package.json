@@ -4,8 +4,8 @@
   "description": "API for the MyShopr application",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev-start": "nodemon server.js"
+    "start": "node -r esm server.js",
+    "dev-start": "nodemon -r esm server.js"
   },
   "engines": {
     "node": "10.x",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.3"

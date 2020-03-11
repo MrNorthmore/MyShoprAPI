@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express.Router()
-const user = require('../models/userModel')
+const userRoute = require('../models/userModel')
 
 // Get all subscribers
 app.get('/', (req,res) => {
-    const allUsers = user.find({'email': 'user@mdmj.com '}, function(err, doc) {
+    const allUsers = userRoute.find({'email': 'user@mdmj.com '}, function(err, doc) {
         if (doc) {
             res.send(doc);
         }

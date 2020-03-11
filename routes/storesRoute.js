@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var Stores = require('../models/storeModel.js');
-var mongoose = require('mongoose');
+import express from 'express';
+import Stores from '../models/storeModel.js';
 
-router.route('/stores')
-    .get(async function (req, res) {
+let router;
+router = express.Router();
+
+router.get('/stores', async function (req, res) {
         Stores.find( {} ).then(async function(updatedDoc) {
             if (updatedDoc) {
                 console.log('[Updated Doc]: ' + updatedDoc);
@@ -16,8 +16,7 @@ router.route('/stores')
 
     });
 
-    router.route('/stores/:storeId')
-        .get(async function (req, res) {
+router.get('/stores/:storeId', async function (req, res) {
             Stores.findOne( {"storeId": req.params.storeId} ).then(async function(updatedDoc) {
                 if (updatedDoc) {
                     console.log('[Updated Doc]: ' + updatedDoc);
@@ -26,6 +25,6 @@ router.route('/stores')
             }).catch(err => {
                 console.error(err);
             })
-        })
+        });
 
-module.exports = router;
+export default router;
