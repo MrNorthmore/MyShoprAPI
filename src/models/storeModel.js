@@ -3,7 +3,7 @@ import { composeWithMongoose } from 'graphql-compose-mongoose';
 
 export const StoreSchema = new Schema(
     {
-        id: mongoose.Schema.Types.ObjectId,
+        id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
         name: String,
         address: String,
         layoutUrl: String,

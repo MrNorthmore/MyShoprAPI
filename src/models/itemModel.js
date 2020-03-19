@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
 
 const ItemSchema = new mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectId,
+        _id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
         name: String,
         brand: String,
         sku: String
