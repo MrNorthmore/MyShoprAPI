@@ -1,21 +1,21 @@
 import mongoose, { Schema } from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
 
-export const StoreSchema = new Schema({
-      _id: mongoose.Schema.Types.ObjectId,
-      storeId: Number,
-      managerId: Number,
-      name: String,
-      address: String,
-      aisles: [{
-        aisleId: Number,
-        categories: [String],
-        items: [{ type: Schema.Types.ObjectId, ref: 'Items'}],
-        position: {
-          xPos: Number,
-          yPos: Number
-        }
-      }]
+export const StoreSchema = new Schema(
+    {
+        id: mongoose.Schema.Types.ObjectId,
+        name: String,
+        address: String,
+        layoutUrl: String,
+        aisles: [
+            {
+                aisleId: Number,
+                items: [String],
+                position: {
+                    xPos: Number,
+                    yPos: Number
+                }
+            }]
     },
     {
       collection: 'Stores',
