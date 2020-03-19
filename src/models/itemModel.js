@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
+import { ObjectId } from 'mongodb';
 
 const ItemSchema = new mongoose.Schema({
         _id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },

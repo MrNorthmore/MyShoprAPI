@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
+import { ObjectId } from 'mongodb';
 
 export const StoreSchema = new Schema(
     {
