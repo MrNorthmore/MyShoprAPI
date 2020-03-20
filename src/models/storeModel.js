@@ -10,7 +10,7 @@ export const StoreSchema = new Schema(
         layoutUrl: String,
         aisles: [
             {
-                aisleId: Number,
+                aisleId: String,
                 items: [String],
                 position: {
                     xPos: Number,
