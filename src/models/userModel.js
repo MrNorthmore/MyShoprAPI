@@ -1,23 +1,20 @@
 import mongoose, {Schema} from 'mongoose'
 import {composeWithMongoose} from "graphql-compose-mongoose";
-import { ObjectId } from 'mongodb';
 
 export const userSchema = new Schema({
-      _id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
       displayName: String,
       email: String,
       recipeList: [{
-        _id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
+        _id: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Schema.Types.ObjectId() },
         name: String,
         ingredients: [String],
         instructions: [String]
       }],
       shoppingLists: [{
-          _id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
+          _id: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Schema.Types.ObjectId() },
           name: String,
           items: [String]
       }]
-
     },
     {
       collection: 'Users'

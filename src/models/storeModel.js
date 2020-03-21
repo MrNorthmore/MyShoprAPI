@@ -4,7 +4,6 @@ import { ObjectId } from 'mongodb';
 
 export const StoreSchema = new Schema(
     {
-        id: { type: mongoose.Schema.Types.ObjectId, default: ObjectId() },
         name: String,
         address: String,
         layoutUrl: String,
