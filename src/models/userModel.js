@@ -5,13 +5,13 @@ export const userSchema = new Schema({
       displayName: String,
       email: String,
       recipeList: [{
-        _id: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Schema.Types.ObjectId() },
+        _id: { type: mongoose.Schema.Types.ObjectId, default: function () { return new mongoose.Types.ObjectId() } },
         name: String,
         ingredients: [String],
         instructions: [String]
       }],
       shoppingLists: [{
-          _id: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Schema.Types.ObjectId() },
+          _id: { type: mongoose.Schema.Types.ObjectId, default: function () { return new mongoose.Types.ObjectId() } },
           name: String,
           items: [String]
       }]
